@@ -1,0 +1,4 @@
+*.so
+*.o
+*.bat
+__pycache__
