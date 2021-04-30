@@ -20,3 +20,21 @@ class Heltal(object):
         
 	def __del__(self):
 		return lib.Heltal_delete(self.obj)
+	
+	def fib_py(self, n=None):
+		if n is None:
+			n = self.get()
+		if n <= 1:
+			return n
+		else:
+			return self.fib_py(n-1) + self.fib_py(n-2)
+
+def main():
+	h = Heltal(15)
+	print(h.fib_py())
+
+if __name__ == '__main__':
+	main()
+
+
+
