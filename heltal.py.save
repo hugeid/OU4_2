@@ -1,8 +1,9 @@
 """ Python interface to the C++ Integer class """
 import ctypes
 from time import perf_counter as pc
-
-import matplotlib.pyplot as plt
+from functools import cache
+ib.pyplot as plt
+from matplotlib.ticker import MultipleLocator
 
 
 lib = ctypes.cdll.LoadLibrary('./libheltal.so')
@@ -61,8 +62,8 @@ def display_fib_comp():
 		c_times.append(c_time)
 	
 	
-	plt.plot(_range, py_times, "-o", c="blue",label= "Python3")
-	plt.plot(_range, c_times, "-o", c="orange", label="c++")
+	plt.plot(py_times, _range, "-o", c="blue",label= "Python3")
+	plt.plot(c_times, _range, "-o", c="orange", label="c++")
 	plt.legend()
 
 	
@@ -81,12 +82,11 @@ def compare_fib(n):
 	end = pc()
 	c_time = end-start
 	return py_time, c_time
-
-def main():
-	display_fib_comp()
+def print_47th():
 	h = Heltal(47)
-	print(f"Fib 47: {h.fib()}")
+	print(h.fib())
+def main():
+	pass
 
-	
 if __name__ == '__main__':
 	main()
