@@ -46,14 +46,14 @@ def fib_py(n):
 def display_fib_comp():	
 	py_times = []
 	c_times = []
-	_range = range(30, 45)
+	_range = range(30, 46)
 	
 	plt.figure(figsize=(10, 3))
 	plt.title("Comparing C++ and Python3 for fib(n)")
-	plt.ylabel("n")
-	plt.xlabel("Time (seconds)")
-	plt.yticks(_range)
-	plt.ylim(min(_range)-1, max(_range)+1, 1)
+	plt.xlabel("n")
+	plt.ylabel("Time (seconds)")
+	plt.xticks(_range)
+	plt.xlim(min(_range)-1, max(_range)+1, 1)
 	
 	for i in _range:
 		py_time, c_time = compare_fib(i)
@@ -83,9 +83,10 @@ def compare_fib(n):
 	return py_time, c_time
 
 def main():
+	print("Starting!")
 	display_fib_comp()
 	h = Heltal(47)
-	print(f"Fib 47: {h.fib()}")
+	print(f"Fib 47: {h.fib()}") # Fib 47: 2971215073
 
 	
 if __name__ == '__main__':
